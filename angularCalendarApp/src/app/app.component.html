@@ -1,0 +1,17 @@
+
+<div class='app'>
+
+  <div class='app-main'>
+    <div class='app-top'>  
+      <button (click)='handleCalendarToggle()'>toggle visible</button>  
+      <button (click)='handleWeekendsToggle()'>toggle weekends</button>  
+      <button (click)='gotoPast()'>go to a date in the past</button>  
+    </div> 
+    <full-calendar 
+    
+      *ngIf='calendarVisible'
+      [options]='calendarOptions'
+    ></full-calendar>
+  </div>
+
+</div>

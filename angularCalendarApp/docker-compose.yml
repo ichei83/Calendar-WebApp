@@ -1,0 +1,10 @@
+version: '3.4'
+
+services:
+  calendarwebapp1:
+    image: ${DOCKER_REGISTRY-}angularcalendarcpp
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      -  "4014:80"

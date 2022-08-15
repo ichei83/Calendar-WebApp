@@ -1,0 +1,63 @@
+Create Instance of MongoDB as Container
+Now you will create a MongoDB container with the image that is available on your local machine. You can create / update databases using this container.
+
+The following command creates a container with the name geeksarray-mongo. Execute this command using GitBash or any other terminal.
+
+docker run -d -p 27017:27017 --name geeksarray-mongo mongo
+docker run: creates a container(instance) of the image and starts it.
+-d: run container in detached mode. This Means the docker container runs in the background of the terminal. It does not accept input or show output.
+-p 27017:27107: maps port 27017 of the container to port 27017 of the host. The syntax of the mapping port is -p HOST_PORT:CONTAINER_PORT.
+https://hub.docker.com/_/mongo/
+https://www.mongodb.com/compatibility/docker
+https://geeksarray.com/blog/create-mongodb-docker-image-and-connect-from-dot-net-core-app
+https://docs.docker.com/network/network-tutorial-standalone/
+
+
+--name geeksarray-mongo: container name.
+mongo: image name.
+
+
+Execute this command to see the list of containers.
+
+docker ps
+
+
+
+Now the container is running in the background however if you try to execute some command it will not run on the container. To execute commands on geeksarray-mongo container use the following command.
+
+docker exec -it geeksarray-mongo /bin/bash
+docker exec: runs the command on the container.
+-it: interactive terminal, whatever you type on the terminal will be passed to a container. Also, output from the container using STDOUT will be passed to the terminal.
+geeksarray-mongo: name of the container.
+/bin/bash: path.
+
+
+mongo shell is used for using mongo commands execute following command.
+
+mongo
+
+
+
+Create MongoDB database
+Now your MongoDB container with the name geeksarray-mongo is ready for creating a database. In this step, you will create a MongoDB database with the name GeeksArrayStore.
+
+To get a list of all databases.
+
+show databases
+To create and use a new database with the name GeeksArrayStore
+
+use GeeksArrayStore
+
+
+Create MongoDB Collection
+In this step, you will create a collection with the name CalendarMongo to keep the CalendarMongo document. As MongoDB is a NoSQL database, there will not be tables with fixed numbers of columns.
+
+The following command creates a collection in GeeksArrayStore database. Notice there is no column definition.
+
+db.createCollection('CalendarMongo')
+
+
+
+To see the list of all collections from GeeksArrayStore database.
+
+show collections
